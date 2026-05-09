@@ -16,6 +16,7 @@ public static class DataExtensions
     {
         var connectionString = builder.Configuration.GetConnectionString("GameStore");
 
+        builder.Services.AddScoped<GameStoreContext>();
         builder.Services.AddSqlite<GameStoreContext>(
             connectionString,
             optionsAction: options => options.UseSeeding((context, _) =>
